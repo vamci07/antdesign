@@ -1,6 +1,8 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 import { DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -10,10 +12,10 @@ function SideNav({ collapsed }) {
       <div className="logo" />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
         <Menu.Item key="1" icon={<PieChartOutlined />}>
-          Option 1
+          <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<DesktopOutlined />}>
-          Option 2
+          <Link to="/about">About</Link>
         </Menu.Item>
         <SubMenu key="sub1" icon={<UserOutlined />} title="User">
           <Menu.Item key="3">Tom</Menu.Item>
@@ -24,7 +26,9 @@ function SideNav({ collapsed }) {
           <Menu.Item key="6">Team 1</Menu.Item>
           <Menu.Item key="8">Team 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="9" icon={<FileOutlined />} />
+        <Menu.Item key="9" icon={<FileOutlined />}>
+          <Link to="/contact">Contact</Link>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

@@ -6,7 +6,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import Content from '../Content';
 
-function Layout() {
+function Layout({ lng, changeLanguage, children }) {
   const [collapsed, setCollapsed] = React.useState(false);
 
   const toggle = () => {
@@ -17,8 +17,8 @@ function Layout() {
     <AntdLayout style={{ minHeight: '100vh' }}>
       <SideNav collapsed={collapsed} />
       <AntdLayout className="site-layout">
-        <Header collapsed={collapsed} toggle={toggle} />
-        <Content />
+        <Header collapsed={collapsed} toggle={toggle} lng={lng} changeLanguage={changeLanguage} />
+        <Content children={children} />
         <Footer />
       </AntdLayout>
     </AntdLayout>
